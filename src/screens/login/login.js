@@ -16,14 +16,14 @@ import styles from "./loginStyles"
 export default class Login extends Component {
   
   render() {
-    const  onSubmit =(values)=>{
+    const  onSubmit =({email, password})=>{
         this.props.loginRequest();
-        let authSuccess =  values.email=="test@gmail.com" && values.password=="12345";
+        let authSuccess =  email=="martin@test.com" && password=="123123";
         
         setTimeout(()=> {
             if(authSuccess) {
                 this.props.loginSuccess();
-                alert("success")
+                alert("You have logged in successfully")
            } else {
                this.props.loginFailure("User not found")
            }
